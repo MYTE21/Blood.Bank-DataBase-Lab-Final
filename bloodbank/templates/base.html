@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-    <link rel="icon" href="https://lh3.googleusercontent.com/YEmASvUNG9hk0vARMF-NrK2VcFJixkr0Kuvn4FPbytUmL-7aGcZvC7sXLhTlfWxxPQ">
     {% block include %}{% endblock %}
 </head>
     <body style="height: 700px">
@@ -22,18 +21,18 @@
                     <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Donor<span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="{% url 'blood_test_method' %}">Add New Donor</a></li>
-                            <li><a href="{% url 'show_info' %}">Donor's Record</a></li>
+                            <li><a href="{% url 'createDonor' %}">Add New Donor</a></li>
+                            <li><a href="{% url 'showDonor' %}">Donor's Record</a></li>
                         </ul>
                     </li>
                     <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Recipient<span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="{% url 'receive' %}">Add New Recipient</a></li>
-                            <li><a href="{% url 'show_recipient' %}">Recipient's Record</a></li>
+                            <li><a href="#">Add New Recipient</a></li>
+                            <li><a href="#">Recipient's Record</a></li>
                         </ul>
                     </li>
-                    <li><a href="{% url 'show_storage' %}">Available Storage</a></li>
+                    <li><a href="#">Available Storage</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href=""><span class="glyphicon glyphicon-user"></span>{{ user.username }}</a></li>
@@ -52,8 +51,8 @@
                     <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#" style="pointer-events: none">Donor<span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="" style="pointer-events: none">Add New Donor</a></li>
-                            <li><a href="" style="pointer-events: none">Donor's Record</a></li>
+                            <li><a href="{% url 'createDonor' %}" style="pointer-events: none">Add New Donor</a></li>
+                            <li><a href="{% url 'showDonor' %}" style="pointer-events: none">Donor's Record</a></li>
                         </ul>
                     </li>
                     <li class="dropdown">
@@ -66,11 +65,13 @@
                     <li><a href="#" style="pointer-events: none">Available Storage</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="{% url 'signup' %}"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                    <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
                     <li><a href="{% url 'login' %}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
                 </ul>
             </div>
         </nav>
+          <p>You are not logged in</p>
+          <a href="{% url 'login' %}">login</a>
         {% endif %}
 
         {% block content %}

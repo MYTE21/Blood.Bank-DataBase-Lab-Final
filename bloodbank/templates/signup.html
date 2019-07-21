@@ -1,15 +1,12 @@
 {% extends 'base.html' %}
-{% block title%}Log In{% endblock %}
-{% block include %}
-    {% load staticfiles %}
-    <link rel="stylesheet" href="{% static "css/styles.css" %}">
-{% endblock %}
+
+{% block title %}Sign Up{% endblock %}
+
 {% block content %}
-    <br><br><br>
-<h1 align="center">Sign up</h1>
+<h2>Sign up</h2>
 <form method="post">
   {% csrf_token %}
   {{ form.as_p }}
-  <button type="submit" class="btn btn-primary">Sign up</button>
+  <button type="submit">Sign up</button>
 </form>
 {% endblock %}
